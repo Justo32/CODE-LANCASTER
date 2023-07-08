@@ -146,3 +146,4 @@ form.addEventListener('submit', function(event) {
     // display result
     document.getElementById('result').textContent = `Your total wage for this month is: ${regularPay}`;
 });
+
