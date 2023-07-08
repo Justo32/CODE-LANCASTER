@@ -1,0 +1,69 @@
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wage Calculator</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<h1>Wage Calculator</h1>
+<form id="wageForm">
+  <label for="regularWeeklyWorkingHours">Regular Weekly Working Hours:</label>
+  <input type="number" id="regularWeeklyWorkingHours" min="0" required>
+
+  <label for="monthlyOvertime">Monthly Overtime:</label>
+  <input type="number" id="monthlyOvertime" min="0" required>
+
+  <label for="pensionPayments">Regular Pension Payments (£):</label>
+  <input type="number" id="pensionPayments" min="0" required>
+
+  <label for="additionalVoluntaryContributions">Additional Voluntary Pension Contributions (£):</label>
+  <input type="number" id="additionalVoluntaryContributions" min="0" required>
+
+  <label for="studentLoan">Student Loan (£):</label>
+  <input type="number" id="studentLoan" min="0" required>
+
+  <label for="postGradStudentLoan">Post Grad Student Loan (£):</label>
+  <input type="number" id="postGradStudentLoan" min="0" required>
+
+  <label for="additionalDeductions">Additional After Tax Deductions (£):</label>
+  <input type="number" id="additionalDeductions" min="0" required>
+
+  <input type="submit" value="Calculate">
+</form>
+
+<div id="result"></div>
+
+<script src="main.js"></script>
+</body>
+ 
+
+ -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <title >Wage Calculator</title> 
+     <link rel="stylesheet" type="text/css" href="index.css">
+ </head>
+ <body>
+     <h1>Wage Calculator</h1>
+     <form id="wageForm">
+         <select id="employeeType" required>
+             <option value="" disabled selected>Employee Type</option>
+             <option value="full-time">Full-time</option>
+             <option value="part-time">Part-time</option>
+         </select> 
+         <!-- user input  -->
+         <input type="number" id="hoursWorked" placeholder="Hours Worked" required>
+         <input type="number" id="holidayHour" placeholder="Holiday Hour">
+         <input type="number" id="sleepTimes" placeholder="Sleep Times">
+         <input type="number" id="extraSleepTimes" placeholder="Extra Sleep Times">
+         <input type="number" id="wakingNightTimes" placeholder="Waking Night Times">
+         <!-- button to calculATE -->
+         <button type="submit">Calculate Wage</button>
+     </form>
+     <!-- display result -->
+     <p id="result"></p>
+     <script src="main.js"></script>
+ </body>
+ </html>
+ 
