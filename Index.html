@@ -53,11 +53,11 @@
              <option value="part-time">Part-time</option>
          </select> 
          <!-- user input  -->
-         <input type="number" id="hoursWorked" placeholder="Hours Worked" required>
-         <input type="number" id="holidayHour" placeholder="Holiday Hour">
-         <input type="number" id="sleepTimes" placeholder="Sleep Times">
-         <input type="number" id="extraSleepTimes" placeholder="Extra Sleep Times">
-         <input type="number" id="wakingNightTimes" placeholder="Waking Night Times">
+         <input type="number" id="hoursWorked" placeholder="Hours Worked" required min="0">
+         <input type="number" id="holidayHour" placeholder="Holiday Hour" min="0">
+         <input type="number" id="sleepTimes" placeholder="Sleep Times" min="0">
+         <input type="number" id="extraSleepTimes" placeholder="Extra Sleep Times" min="0">
+         <input type="number" id="wakingNightTimes" placeholder="Waking Night Times" min="0">
          <!-- button to calculATE -->
          <button type="submit">Calculate Wage</button>
      </form>
