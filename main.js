@@ -93,7 +93,7 @@ form.addEventListener('submit', function(event) {
     const FULL_TIME_HOURS = 150;
     const PART_TIME_HOURS = 80;
     // employee rate in terms of wage for full time
-    const FULL_TIME_HOURLY_RATE = 11.25;
+    const FULL_TIME_HOURLY_RATE = 11.75;
     const FULL_TIME_OVERTIME_RATE = 13.75;
     const FULL_TIME_BANK_HOLIDAY_RATE = 23.5;
     const FULL_TIME_WAKING_NIGHT_RATE = 111.625;
