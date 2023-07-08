@@ -38,32 +38,34 @@
  
 
  -->
- <!DOCTYPE html>
- <html>
- <head>
-     <title >Wage Calculator</title> 
-     <link rel="stylesheet" type="text/css" href="index.css">
- </head>
- <body>
-     <h1>Wage Calculator</h1>
-     <form id="wageForm">
-         <select id="employeeType" required>
-             <option value="" disabled selected>Employee Type</option>
-             <option value="full-time">Full-time</option>
-             <option value="part-time">Part-time</option>
-         </select> 
-         <!-- user input  -->
-         <input type="number" id="hoursWorked" placeholder="Hours Worked" required min="0">
-         <input type="number" id="holidayHour" placeholder="Holiday Hour" min="0">
-         <input type="number" id="sleepTimes" placeholder="Sleep Times" min="0">
-         <input type="number" id="extraSleepTimes" placeholder="Extra Sleep Times" min="0">
-         <input type="number" id="wakingNightTimes" placeholder="Waking Night Times" min="0">
-         <!-- button to calculATE -->
-         <button type="submit">Calculate Wage</button>
-     </form>
-     <!-- display result -->
-     <p id="result"></p>
-     <script src="main.js"></script>
- </body>
- </html>
- 
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Wage Calculator</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+  <h1>Wage Calculator</h1>
+  <form id="wageForm">
+    <select id="employeeType" required>
+      <option value="" disabled selected>Employee Type</option>
+      <option value="full-time">Full-time</option>
+      <option value="part-time">Part-time</option>
+    </select>
+    <!-- user input  -->
+    <input type="number" id="hoursWorked" placeholder="Hours Worked" required min="0">
+    <input type="number" id="holidayHour" placeholder="Holiday Hour" min="0">
+    <input type="number" id="sleepTimes" placeholder="Sleep Times" min="0">
+    <input type="number" id="extraSleepTimes" placeholder="Extra Sleep Times" min="0">
+    <input type="number" id="wakingNightTimes" placeholder="Waking Night Times" min="0">
+    <!-- button to calculATE -->
+    <button type="submit">Calculate Wage</button>
+  </form>
+  <!-- display result -->
+  <p id="result"></p>
+  <script src="main.js"></script>
+</body>
+
+</html>

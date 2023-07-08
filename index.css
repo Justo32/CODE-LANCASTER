@@ -22,7 +22,7 @@
     font-size: 18px;
   }
    */
- /* body {
+/* body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -76,13 +76,13 @@ h1 {
     max-width: 500px;
     margin: 0 auto;
     background-color: #fff;
-    padding: 20px;
+    padding: 22px;
     border-radius: 4px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-#wageForm select, 
-#wageForm input, 
+#wageForm select,
+#wageForm input,
 #wageForm button {
     display: block;
     width: 100%;
@@ -112,13 +112,14 @@ h1 {
 
 /* For mobile screens */
 @media screen and (max-width: 600px) {
-    #wageForm, #result {
+
+    #wageForm,
+    #result {
         width: 100%;
     }
 
     h1 {
-        font-size: 1.5em;
+        font-size: 1.5em;
 
     }
 }
-
