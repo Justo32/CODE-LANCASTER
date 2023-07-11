@@ -1,49 +1,12 @@
-<!-- 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Wage Calculator</title>
-  <link rel="stylesheet" type="text/css" href="index.css">
-</head>
-<h1>Wage Calculator</h1>
-<form id="wageForm">
-  <label for="regularWeeklyWorkingHours">Regular Weekly Working Hours:</label>
-  <input type="number" id="regularWeeklyWorkingHours" min="0" required>
 
-  <label for="monthlyOvertime">Monthly Overtime:</label>
-  <input type="number" id="monthlyOvertime" min="0" required>
-
-  <label for="pensionPayments">Regular Pension Payments (£):</label>
-  <input type="number" id="pensionPayments" min="0" required>
-
-  <label for="additionalVoluntaryContributions">Additional Voluntary Pension Contributions (£):</label>
-  <input type="number" id="additionalVoluntaryContributions" min="0" required>
-
-  <label for="studentLoan">Student Loan (£):</label>
-  <input type="number" id="studentLoan" min="0" required>
-
-  <label for="postGradStudentLoan">Post Grad Student Loan (£):</label>
-  <input type="number" id="postGradStudentLoan" min="0" required>
-
-  <label for="additionalDeductions">Additional After Tax Deductions (£):</label>
-  <input type="number" id="additionalDeductions" min="0" required>
-
-  <input type="submit" value="Calculate">
-</form>
-
-<div id="result"></div>
-
-<script src="main.js"></script>
-</body> -->
- 
-
- 
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>Wage Calculator</title>
   <link rel="stylesheet" type="text/css" href="index.css">
+  <title></title>
+  
 </head>
 
 <body>
@@ -55,12 +18,15 @@
       </div>
       <div class="right_side">
         <h1>Wage Calculator</h1>
+        <h5>This calculation is based on a full time hours of 150 and part time hours of 80 hours</h5>
         <form id="wageForm">
       
           <select id="employeeCategory" required>
             <option value=""disabled selected>Employee Category</option>
+            <option value="house-keeper">House-keeper</option>
             <option value="support-worker">Support-Worker</option>
             <option value="senior-support-worker">Senior-Support-Worker</option>
+            <option value="deputy-manager">Deputy-Manager</option>
         
           </select>
           
@@ -92,6 +58,3 @@
 
   </div>
 </html> 
-
-
-

@@ -267,6 +267,8 @@ form.addEventListener('submit', function(event) {
     //employee category
     const EMPLOYEE_CATEGORY__SUPPORT_WORKER = 'support-worker';
     const EMPLOYEE_CATEGORY_SENIOR_SUPPORT_WORKER = 'senior-support-worker';
+    const EMPLOYEE_CATEGORY_HOUSE_KEEPER = 'house-keeper';
+    const EMPLOYEE_CATEGORY_DEPUTY_MANAGER = 'deputy-manager';
     // employee type
     const EMPLOYEE_TYPE_FULL_TIME = 'full-time';
     const EMPLOYEE_TYPE_PART_TIME = 'part-time';
@@ -280,6 +282,11 @@ form.addEventListener('submit', function(event) {
     const FULL_TIME_HOURLY_RATE_SENIOR_SUPPORT_WORKER = 12.25;
     const FULL_TIME_OVERTIME_RATE_SENIOR_SUPPORT_WORKER = 14.25;
     const FULL_TIME_BANK_HOLIDAY_RATE_SENIOR_SUPPORT_WORKER = 24.50;
+    const FULL_TIME_HOURLY_RATE_HOUSE_KEEPER = 10.42;
+    const FULL_TIME_BANK_HOLIDAY_RATE_HOUSE_KEEPER = 20.84;
+    const FULL_TIME_HOURLY_RATE_DEPUTY_MANAGER = 12.75;
+    const FULL_TIME_OVERTIME_RATE_DEPUTY_MANAGER = 14.75;
+    const FULL_TIME_BANK_HOLIDAY_RATE_DEPUTY_MANAGER = 25.5;
     const FULL_TIME_WAKING_NIGHT_RATE = 111.625;
     const FULL_TIME_SLEEP_RATE = 30;
     const FULL_TIME_EXTRA_SLEEP_RATE = 60;
@@ -301,16 +308,34 @@ form.addEventListener('submit', function(event) {
     const sleepTimes = parseFloat(document.getElementById('sleepTimes').value) || 0;
     const extraSleepTimes = parseFloat(document.getElementById('extraSleepTimes').value) || 0;
     const wakingNightTimes = parseFloat(document.getElementById('wakingNightTimes').value) || 0;
-    console.log("category is " + employeeCategory)
-    console.log("Type is " + employeeType)
-    console.log("horsWorked is " + hoursWorked)
-    console.log("holidayHour is " + holidayHour)
-    console.log("sleepTimes is " + sleepTimes)
-    console.log("extraSleepTimes is " + extraSleepTimes)
-    console.log("wakingNightTimes is " + wakingNightTimes)
+    // console.log("category is " + employeeCategory)
+    // console.log("Type is " + employeeType)
+    // console.log("horsWorked is " + hoursWorked)
+    // console.log("holidayHour is " + holidayHour)
+    // console.log("sleepTimes is " + sleepTimes)
+    // console.log("extraSleepTimes is " + extraSleepTimes)
+    // console.log("wakingNightTimes is " + wakingNightTimes)
     // initialize wage variable
     let regularPay = 0;
 
+   
+
+    //calculation logic base on employee type for house keeper
+    if (employeeCategory === EMPLOYEE_CATEGORY_HOUSE_KEEPER){
+        if (employeeType === EMPLOYEE_TYPE_FULL_TIME){
+            regularPay = FULL_TIME_HOURLY_RATE_HOUSE_KEEPER * hoursWorked;
+            regularPay += FULL_TIME_BANK_HOLIDAY_RATE_HOUSE_KEEPER * holidayHour;
+            regularPay += FULL_TIME_SLEEP_RATE * sleepTimes;
+            regularPay += FULL_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
+            regularPay += FULL_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
+            
+        }
+        else if (employeeType === EMPLOYEE_TYPE_PART_TIME){
+            regularPay = 0;
+            document.getElementById('result').textContent = "Error: There is no part time for housekeeper";
+            return;
+        }
+    }
     // calculation logic base on employee type for full time support worker
     if (employeeCategory === EMPLOYEE_CATEGORY__SUPPORT_WORKER) {
         if (employeeType === EMPLOYEE_TYPE_FULL_TIME) {
@@ -322,12 +347,11 @@ form.addEventListener('submit', function(event) {
             }
             // logic for full time
             regularPay += FULL_TIME_BANK_HOLIDAY_RATE_SUPPORT_WORKER * holidayHour;
-            console.log("regularPay is " + regularPay)
             regularPay += FULL_TIME_SLEEP_RATE * sleepTimes;
             regularPay += FULL_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += FULL_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
         }
-    }
+    
         // calculation logic base on employee type for part time
         else if (employeeType === EMPLOYEE_TYPE_PART_TIME) {
             if (hoursWorked <= PART_TIME_HOURS) {
@@ -342,6 +366,7 @@ form.addEventListener('submit', function(event) {
             regularPay += PART_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += PART_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
     }
+}
     // calculation logic base on employee type for full time senior support worker
     if (employeeCategory === EMPLOYEE_CATEGORY_SENIOR_SUPPORT_WORKER) {
         if (employeeType === EMPLOYEE_TYPE_FULL_TIME) {
@@ -357,7 +382,7 @@ form.addEventListener('submit', function(event) {
             regularPay += FULL_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += FULL_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
         }
-    }
+    
         // calculation logic base on employee type for part time
         else if (employeeType === EMPLOYEE_TYPE_PART_TIME) {
             if (hoursWorked <= PART_TIME_HOURS) {
@@ -372,8 +397,35 @@ form.addEventListener('submit', function(event) {
             regularPay += PART_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += PART_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
     }
-
+}
+    // calculation logic base on employee type for full time deputy manager
+    if (employeeCategory === EMPLOYEE_CATEGORY_DEPUTY_MANAGER) {
+        if (employeeType === EMPLOYEE_TYPE_FULL_TIME) {
+            if (hoursWorked <= FULL_TIME_HOURS) {
+                regularPay = FULL_TIME_HOURLY_RATE_DEPUTY_MANAGER * hoursWorked;
+            } else if (hoursWorked > FULL_TIME_HOURS) {
+                const overtimeHours = hoursWorked - FULL_TIME_HOURS;
+                regularPay = FULL_TIME_HOURLY_RATE_DEPUTY_MANAGER * FULL_TIME_HOURS + FULL_TIME_OVERTIME_RATE_DEPUTY_MANAGER * overtimeHours;
+            }
+            // logic for full time
+            regularPay += FULL_TIME_BANK_HOLIDAY_RATE_SENIOR_SUPPORT_WORKER * holidayHour;
+            regularPay += FULL_TIME_SLEEP_RATE * sleepTimes;
+            regularPay += FULL_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
+            regularPay += FULL_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
+        }
+        else if (employeeType === EMPLOYEE_TYPE_PART_TIME){
+            regularPay = 0;
+            document.getElementById('result').textContent = "Error: There is no part time for deputy manager ";
+            return;
+        }
+    }
     // regularPay = Math.ceil(regularPay);
     // display result
     document.getElementById('result').textContent = `Your total wage for this month is: ${regularPay}`;
 });
+
+
+           
+
+
+
