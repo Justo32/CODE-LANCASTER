@@ -276,6 +276,7 @@ form.addEventListener('submit', function(event) {
     const FULL_TIME_HOURS = 150;
     const PART_TIME_HOURS = 80;
     // employee rate in terms of wage for full time
+    const FULL_TIME_TRAINING_HOUR_RATE = 11.75
     const FULL_TIME_HOURLY_RATE_SUPPORT_WORKER = 11.75;
     const FULL_TIME_OVERTIME_RATE_SUPPORT_WORKER = 13.75;
     const FULL_TIME_BANK_HOLIDAY_RATE_SUPPORT_WORKER = 23.5;
@@ -291,6 +292,7 @@ form.addEventListener('submit', function(event) {
     const FULL_TIME_SLEEP_RATE = 30;
     const FULL_TIME_EXTRA_SLEEP_RATE = 60;
     // employee rate in terms of wage for part time
+    const PART_TIME_TRAINING_HOUR_RATE = 11.75;
     const PART_TIME_HOURLY_RATE_SUPPORT_WORKER = 11.75;
     const PART_TIME_OVERTIME_RATE_SUPPORT_WORKER = 13.75;
     const PART_TIME_BANK_HOLIDAY_RATE_SUPPORT_WORKER = 23.5;
@@ -304,6 +306,7 @@ form.addEventListener('submit', function(event) {
     const employeeCategory = document.getElementById('employeeCategory').value;
     const employeeType = document.getElementById('employeeType').value;
     const hoursWorked = parseFloat(document.getElementById('hoursWorked').value);
+    const trainingHour = parseFloat(document.getElementById('trainingHour').value) || 0;
     const holidayHour = parseFloat(document.getElementById('holidayHour').value) || 0;
     const sleepTimes = parseFloat(document.getElementById('sleepTimes').value) || 0;
     const extraSleepTimes = parseFloat(document.getElementById('extraSleepTimes').value) || 0;
@@ -325,6 +328,7 @@ form.addEventListener('submit', function(event) {
         if (employeeType === EMPLOYEE_TYPE_FULL_TIME){
             regularPay = FULL_TIME_HOURLY_RATE_HOUSE_KEEPER * hoursWorked;
             regularPay += FULL_TIME_BANK_HOLIDAY_RATE_HOUSE_KEEPER * holidayHour;
+            regularPay += FULL_TIME_TRAINING_HOUR_RATE * trainingHour;
             regularPay += FULL_TIME_SLEEP_RATE * sleepTimes;
             regularPay += FULL_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += FULL_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
@@ -347,6 +351,7 @@ form.addEventListener('submit', function(event) {
             }
             // logic for full time
             regularPay += FULL_TIME_BANK_HOLIDAY_RATE_SUPPORT_WORKER * holidayHour;
+            regularPay += FULL_TIME_TRAINING_HOUR_RATE * trainingHour;
             regularPay += FULL_TIME_SLEEP_RATE * sleepTimes;
             regularPay += FULL_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += FULL_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
@@ -362,6 +367,7 @@ form.addEventListener('submit', function(event) {
             }
         
             regularPay += PART_TIME_BANK_HOLIDAY_RATE_SUPPORT_WORKER * holidayHour;
+            regularPay += PART_TIME_TRAINING_HOUR_RATE * trainingHour;
             regularPay += PART_TIME_SLEEP_RATE * sleepTimes;
             regularPay += PART_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += PART_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
@@ -378,6 +384,7 @@ form.addEventListener('submit', function(event) {
             }
             // logic for full time
             regularPay += FULL_TIME_BANK_HOLIDAY_RATE_SENIOR_SUPPORT_WORKER * holidayHour;
+            regularPay += FULL_TIME_TRAINING_HOUR_RATE * trainingHour;
             regularPay += FULL_TIME_SLEEP_RATE * sleepTimes;
             regularPay += FULL_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += FULL_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
@@ -393,6 +400,7 @@ form.addEventListener('submit', function(event) {
             }
         
             regularPay += PART_TIME_BANK_HOLIDAY_RATE_SENIOR_SUPPORT_WORKER * holidayHour;
+            regularPay += PART_TIME_TRAINING_HOUR_RATE * trainingHour;
             regularPay += PART_TIME_SLEEP_RATE * sleepTimes;
             regularPay += PART_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += PART_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
@@ -408,7 +416,8 @@ form.addEventListener('submit', function(event) {
                 regularPay = FULL_TIME_HOURLY_RATE_DEPUTY_MANAGER * FULL_TIME_HOURS + FULL_TIME_OVERTIME_RATE_DEPUTY_MANAGER * overtimeHours;
             }
             // logic for full time
-            regularPay += FULL_TIME_BANK_HOLIDAY_RATE_SENIOR_SUPPORT_WORKER * holidayHour;
+            regularPay += FULL_TIME_BANK_HOLIDAY_RATE_DEPUTY_MANAGER * holidayHour;
+            regularPay += FULL_TIME_TRAINING_HOUR_RATE * trainingHour;
             regularPay += FULL_TIME_SLEEP_RATE * sleepTimes;
             regularPay += FULL_TIME_EXTRA_SLEEP_RATE * extraSleepTimes;
             regularPay += FULL_TIME_WAKING_NIGHT_RATE * wakingNightTimes;
